@@ -1,17 +1,16 @@
 document.addEventListener('DOMContentLoaded', (event) => {
 
   let canvasContId = document.querySelector('#canvas-container')
-  let topTextInput = document.querySelector('#topText')
-  let bottomTextInput = document.querySelector('#bottomText')
+
   let mainTextInput = document.querySelector('.text-inputs')
   // topTextInput.value = "";
   putShitOnDom(canvasContId)
 
   mainTextInput.addEventListener('input', (event) => {
-    let inputId = event.target.id
-    let inputText = event.target.value
-    console.log(inputText)
-    textChangeListener(inputId, inputText)
+    let img = window.base_pic
+    let topTextInput = document.querySelector('#topText').value
+    let bottomTextInput = document.querySelector('#bottomText').value
+    reDrawImage(img, topTextInput, bottomTextInput)
   })
 
 
@@ -19,18 +18,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
 })
 
 
-function textChangeListener(inputId, inputText){
-  let img = window.base_pic
-  let newTopText = "";
-  let newBottomText = "";
-  if (inputId == "topText") {
-    newTopText = inputText;
-  } else {
-    newBottomText = inputText;
-  }
-  reDrawImage(img, newTopText)
-  // redrawMeme(window.imageSrc, window.topText, window.bottomText);
-}
+// function textChangeListener(inputId, inputText){
+//   let img = window.base_pic
+//   let newTopText = "";
+//   let newBottomText = "";
+//   if (inputId === "topText") {
+//     newTopText = inputText;
+//   } else {
+//     newBottomText = inputText;
+//   }
+//   reDrawImage(img, newTopText, newBottomText)
+//   // redrawMeme(window.imageSrc, window.topText, window.bottomText);
+// }
 
 const makeCanvas = () => {
   return `<canvas id="canvas" width="768" height="768">
@@ -48,7 +47,7 @@ function putShitOnDom(canvasContId){
   // debugger
 }
 
-function reDrawImage(img, newTopText) {
+function reDrawImage(img, newTopText, newBottomText) {
   const canvas = document.getElementById('canvas');
   const ctx = canvas.getContext('2d');
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -61,33 +60,30 @@ function reDrawImage(img, newTopText) {
   // let updateTopText = "";
   // if (img.src.length > 0) {
   //   console.log('hi')
-    if (newTopText.length < 15) {
-      // debugger
-      ctx.font = "60px impact";
-    }
-    else if (newTopText.length < 24) {
-      ctx.font = "40px impact";
-    }
-    else {
-      ctx.font = "20px impact";
-    }
-    ctx.textBaseline = "top";
-    ctx.strokeText(newTopText, 200, 10);
-    ctx.fillText(newTopText, 200, 10);
-  // let updateBottomText = "";
+  if (newTopText.length < 15) {
+    // debugger
+    ctx.font = "60px impact";
+  }
+  else if (newTopText.length < 24) {
+    ctx.font = "40px impact";
+  }
+  else {
+    ctx.font = "20px impact";
+  }
+  ctx.textBaseline = "top";
+  ctx.strokeText(newTopText, 200, 10);
+  ctx.fillText(newTopText, 200, 10);
 
-
-  //
-  // if (bottomText.length < 15) {
-  //   ctx.font = "60px impact";
-  // } else if (bottomText.length < 24) {
-  //   ctx.font = "40px impact";
-  // } else {
-  //   ctx.font = "20px impact";
-  // }
-  // ctx.textBaseline = "bottom";
-  // ctx.strokeText(bottomText, 200, 390);
-  // ctx.fillText(bottomText, 200, 390);
+  if (newBottomText.length < 15) {
+    ctx.font = "60px impact";
+  } else if (newBottomText.length < 24) {
+    ctx.font = "40px impact";
+  } else {
+    ctx.font = "20px impact";
+  }
+  ctx.textBaseline = "bottom";
+  ctx.strokeText(newBottomText, 200, 390);
+  ctx.fillText(newBottomText, 200, 390);
 
 
 }
