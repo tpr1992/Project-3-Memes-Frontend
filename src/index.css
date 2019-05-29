@@ -1,3 +1,19 @@
-#base_pic{
+#base_pic {
   display: none;
+}
+
+#enter-btn {
+  align-content: center;
+}
+
+.user-name {
+  /* display: inline; */
+
+}
+
+#submit-btn {
+  /* position: fixed; */
+  /* position: relative; */
+  /* bottom: -5px; */
+  /* width: 350px; */
 }
