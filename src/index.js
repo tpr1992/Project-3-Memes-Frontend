@@ -1,9 +1,7 @@
 document.addEventListener('DOMContentLoaded', (event) => {
 
   let canvasContId = document.querySelector('#canvas-container')
-
   let mainTextInput = document.querySelector('.text-inputs')
-  // topTextInput.value = "";
   putShitOnDom(canvasContId)
 
   mainTextInput.addEventListener('input', (event) => {
@@ -12,7 +10,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     let bottomTextInput = document.querySelector('#bottomText').value
     reDrawImage(img, topTextInput, bottomTextInput)
   })
-
 
 
 })
@@ -34,7 +31,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 const makeCanvas = () => {
   return `<canvas id="canvas" width="768" height="768">
   </canvas>
-  <img id="base_pic" src="https://afinde-production.s3.amazonaws.com/uploads/card_1dd616ad-f0d0-45d3-8909-24b578014654.jpg"/>`
+  <img id="base_pic" src="http://ohsohumorous.com/var/albums/blank-meme-template-base/blank-meme-template-base-00313.jpg?m=1490466615"/>`
 }
 
 function putShitOnDom(canvasContId){
@@ -61,7 +58,6 @@ function reDrawImage(img, newTopText, newBottomText) {
   // if (img.src.length > 0) {
   //   console.log('hi')
   if (newTopText.length < 15) {
-    // debugger
     ctx.font = "60px impact";
   }
   else if (newTopText.length < 24) {
@@ -81,11 +77,10 @@ function reDrawImage(img, newTopText, newBottomText) {
   } else {
     ctx.font = "20px impact";
   }
+
   ctx.textBaseline = "bottom";
   ctx.strokeText(newBottomText, 200, 390);
   ctx.fillText(newBottomText, 200, 390);
-
-
 }
 
 function drawImage(img, newTopText) {
