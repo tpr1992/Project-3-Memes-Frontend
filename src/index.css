@@ -6,14 +6,37 @@
   align-content: center;
 }
 
-.user-name {
-  /* display: inline; */
-
+#submit-btn {
+  position: relative;
+  bottom: -24px;
+  z-index: 0;
+}
+#user-input-field {
+  z-index: 1;
 }
 
-#submit-btn {
-  /* position: fixed; */
-  /* position: relative; */
-  /* bottom: -5px; */
-  /* width: 350px; */
+#canvas-container {
+  max-width: 512px;
+  max-height: auto;
+}
+
+#image-gallery {
+  text-align: center;
+  width: 512px;
+}
+
+/* .user-name {
+  float: inherit;
+} */
+
+
+img {
+  max-width: 512px;
+  max-height: auto;
+  vertical-align: middle;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  /* padding-right: 4px;
+  padding-left: 4px; */
+
 }
