@@ -112,7 +112,7 @@ const slapItOnTheGallery = (image) => {
 
 const slapFavoriteOnList = (favorite) => {
   let userFavoritesList = document.querySelector('#user-favorites')
-  userFavoritesList.innerHTML += `<p data-id="${favorite.id}">Hi ${favorite.id}</p>`
+  userFavoritesList.innerHTML += `<p data-id="${favorite.title}">Hi ${favorite.id}</p>`
 }
 
 const favoriteListClick = (event) => {
@@ -130,7 +130,7 @@ const favoriteListClick = (event) => {
       topTextInput.value = favorite.text_top
       bottomTextInput.value = favorite.text_bottom
       titleText.value = favorite.title
-      debugger
+      // debugger
       userNameForm.dataset.id = parseInt(imageGalleryId.dataset.id)
       currentFavoriteId = favorite.id
       reDrawImage(imageGalleryId, favorite.text_top, favorite.text_bottom)
@@ -138,7 +138,6 @@ const favoriteListClick = (event) => {
       let updateBtn = `<button class="btn waves-effect waves-light" type="click" id="update-btn">Update
       </button>`
       if (userNameForm.innerHTML.includes('current-user') && (userNameForm.innerHTML.includes('update-btn') === false)) {
-        // console.log('hi');
         userNameForm.innerHTML = "";
         userNameForm.appendChild(userName)
         userNameForm.innerHTML += updateBtn
@@ -149,7 +148,6 @@ const favoriteListClick = (event) => {
 }
 
 const getUserFavorites = () => {
-
   let saveUserId = document.querySelector('#current-user').dataset.id
   fetch(`http://localhost:3000/api/v1/users/${saveUserId}`)
   .then(res => res.json())
